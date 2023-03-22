@@ -1,0 +1,13 @@
+ds = organisation of data, eg:stack,queue
+algorithm = step by step instructions of code
+complexity analysis = analysis the soln and make better on the basis of TCA and SPA
+memory allocate in RAM for programes
+binary system = 0,1 representation
+1 byte(B) = 8 bit(b) , 1 kilobyte = 1024 bytes,megabyte,gigabyte,terabyte,petabyte
+Gbps && GB
+1 = 0000 0001
+2 = 0000 0010
+3 = 0000 0011
+int == 4 byte space for 32 bit system
+cotiguous memory allocation : eg; array , int value , store binary value continuously
+non-contiguous MA : eg; linked list , store address with binary value
