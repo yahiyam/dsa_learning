@@ -61,3 +61,4 @@ linear time complexity  O(n)    eg;f1
 constant TC             O(1)    eg;f2
 quadratic TC            O(n^2)  eg;f3
 */
+//generally we will optimise time
