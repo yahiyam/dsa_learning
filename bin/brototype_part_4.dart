@@ -17,3 +17,4 @@ void main(List<String> args) {
 }
 //dynamic list && static list
 //dynamic list    worst case ==> O(n)ST   best case ==> O(1)ST
+// array is a back to back memory space
