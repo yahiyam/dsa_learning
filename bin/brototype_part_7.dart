@@ -73,6 +73,7 @@ class SLinkedList {
     Node? temp = head, prev;
     if (temp != null && temp.data == data) {
       head = temp.next;
+
       return;
     }
     while (temp != null && temp.data != data) {
@@ -84,9 +85,11 @@ class SLinkedList {
     }
     if (temp == tail) {
       tail = prev;
+
       tail?.next = null;
       return;
     }
+
     prev?.next = temp.next;
   }
 
@@ -101,10 +104,12 @@ class SLinkedList {
     }
     if (temp == tail) {
       temp.next = newNode;
+
       tail = newNode;
       return;
     }
     newNode.next = temp.next;
+
     temp.next = newNode;
   }
 }
