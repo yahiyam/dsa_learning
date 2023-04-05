@@ -15,11 +15,41 @@ selectionSort(List list) {
   }
   return list;
 }
-
-quikSort(List list){
-
+//code not working 
+quickSort(List list) {
+  quickSortHelper(list, 0, list.length - 1);
 }
+
+quickSortHelper(List list, int startIdx, int endIdx) {
+  if (startIdx >= endIdx) {
+    return;
+  }
+  int pivotIdx = startIdx, leftIdx = startIdx + 1, rightIdx = endIdx;
+  while (leftIdx <= rightIdx) {
+    if (list[leftIdx] > list[pivotIdx] && list[rightIdx] < list[pivotIdx]) {
+      _swap(list, leftIdx, rightIdx);
+      leftIdx++;
+      rightIdx--;
+    }
+    if (list[leftIdx] <= list[pivotIdx]) {
+      leftIdx++;
+    }
+    if (list[rightIdx] >= list[pivotIdx]) {
+      rightIdx--;
+    }
+  }
+  _swap(list, rightIdx, pivotIdx);
+  quickSortHelper(list, startIdx, rightIdx - 1);
+  quickSortHelper(list, rightIdx + 1, endIdx);
+}
+
+_swap(List list, int i, int j) {
+  int temp = list[i];
+  list[i] = list[j];
+  list[j] = temp;
+}
+
 void main(List<String> args) {
   List list = [2, 46, 2, 4, 9, 3, 2, 1, 9, 540];
-  print(selectionSort(list));
+  print(quickSort(list));
 }
