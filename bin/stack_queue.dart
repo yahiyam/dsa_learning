@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Node {
   int data;
   Node? next;
@@ -47,7 +49,42 @@ class DynamicStack {
   }
 }
 
-class StaticStack {}
+class StaticStack {
+  int top = -1;
+  int capacity = 10;
+  List stack = List.filled(10, 0);
+
+  push(int data) {
+    if (top < capacity - 1) {
+      top++;
+      stack[top] = data;
+      print('pushed item $data');
+    } else {
+      print('stack Overflow');
+    }
+  }
+
+  pop() {
+    if (top >= 0) {
+      int data = stack[top];
+      top--;
+      print('popped item $data');
+    } else {
+      print('stack underflow');
+    }
+  }
+
+  display() {
+    if (top >= 0) {
+      print('stack elements');
+      for (int i = top; i >= 0; i--) {
+        print(stack[i]);
+      }
+    } else {
+      print('stack is empty');
+    }
+  }
+}
 
 class Queue {
   Node? front, rear;
@@ -87,21 +124,28 @@ class Queue {
 }
 
 void main(List<String> args) {
-  // DynamicStack stack = DynamicStack();
-  // stack.display();
-  // stack.push(1);
-  // stack.push(2);
-  // // stack.push(3);
-  // stack.push(4);
-  // // // stack.display();
-  // // stack.pop();
-  // stack.display();
-  // stack.peek();
-  Queue queue = Queue();
-  queue.enqueue(1);
-  queue.enqueue(3);
-  queue.enqueue(2);
-  queue.enqueue(5);
-  queue.dequeue();
-  queue.display();
+  // // DynamicStack stack = DynamicStack();
+  // // stack.display();
+  // // stack.push(1);
+  // // stack.push(2);
+  // // // stack.push(3);
+  // // stack.push(4);
+  // // // // stack.display();
+  // // // stack.pop();
+  // // stack.display();
+  // // stack.peek();
+  // Queue queue = Queue();
+  // queue.enqueue(1);
+  // queue.enqueue(3);
+  // queue.enqueue(2);
+  // queue.enqueue(5);
+  // queue.dequeue();
+  // queue.display();
+  StaticStack staticStack=StaticStack();
+  staticStack.push(10);
+  staticStack.push(111);
+  staticStack.push(11);
+  staticStack.push(1);
+  staticStack.pop();
+  staticStack.display();
 }
