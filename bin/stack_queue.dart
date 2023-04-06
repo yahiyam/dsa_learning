@@ -1,4 +1,3 @@
-
 class Node {
   int data;
   Node? next;
@@ -18,8 +17,8 @@ class DynamicStack {
     }
   }
 
-  peek(){
-    if (top==null) {
+  peek() {
+    if (top == null) {
       print('Nothing Found');
     } else {
       print(top?.data);
@@ -44,23 +43,65 @@ class DynamicStack {
       print(current.data);
       current = current.next;
     }
+    print("\n");
   }
 }
-class StaticStack {
-  
+
+class StaticStack {}
+
+class Queue {
+  Node? front, rear;
+  enqueue(int data) {
+    Node newNode = Node(data: data);
+    if (rear == null) {
+      front = rear = newNode;
+    } else {
+      rear?.next = newNode;
+      rear = newNode;
+    }
+  }
+
+  dequeue() {
+    if (front == null) {
+      print('queue is empty');
+    } else {
+      front = front?.next;
+    }
+    if (front == null) {
+      rear = null;
+    }
+  }
+
+  display() {
+    if (front == null) {
+      print('Empty Linked List');
+      return;
+    }
+    Node? current = front;
+    while (current != null) {
+      print(current.data);
+      current = current.next;
+    }
+    print("\n");
+  }
 }
 
 void main(List<String> args) {
-  DynamicStack stack = DynamicStack();
-  stack.display();
-  stack.push(1);
-  stack.push(2);
-  // stack.push(3);
-  stack.push(4);
-  // // stack.display();
-  // stack.pop();
-  stack.display();
-  print("\n");
-  stack.peek();
-
+  // DynamicStack stack = DynamicStack();
+  // stack.display();
+  // stack.push(1);
+  // stack.push(2);
+  // // stack.push(3);
+  // stack.push(4);
+  // // // stack.display();
+  // // stack.pop();
+  // stack.display();
+  // stack.peek();
+  Queue queue = Queue();
+  queue.enqueue(1);
+  queue.enqueue(3);
+  queue.enqueue(2);
+  queue.enqueue(5);
+  queue.dequeue();
+  queue.display();
 }
