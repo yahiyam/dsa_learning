@@ -1,18 +1,18 @@
 class MinHeap {
-  late List<int> heap;
+  late List heap;
 
-  MinHeap.fromList(List<int> array) {
-    buildHeap(array);
+  MinHeap.fromList(List list) {
+    buildHeap(list);
   }
 
-  void buildHeap(List<int> array) {
-    heap = List.from(array);
+  buildHeap(List list) {
+    heap = List.from(list);
     for (int i = parent(heap.length - 1); i >= 0; i--) {
       shiftDown(i);
     }
   }
 
-  void shiftDown(int currentIdx) {
+  shiftDown(int currentIdx) {
     int endIdx = heap.length - 1;
     int leftIdx = leftChild(currentIdx);
     while (leftIdx <= endIdx) {
@@ -33,7 +33,7 @@ class MinHeap {
     }
   }
 
-  void shiftUp(int currentIdx) {
+  shiftUp(int currentIdx) {
     int parentIdx = parent(currentIdx);
     while (currentIdx > 0 && heap[parentIdx] > heap[currentIdx]) {
       _swap(currentIdx, parentIdx);
@@ -46,13 +46,13 @@ class MinHeap {
     return heap[0];
   }
 
-  void remove() {
+  remove() {
     _swap(0, heap.length - 1);
     heap.removeLast();
     shiftDown(0);
   }
 
-  void insert(int value) {
+  insert(int value) {
     heap.add(value);
     shiftUp(heap.length - 1);
   }
@@ -69,22 +69,22 @@ class MinHeap {
     return (i * 2) + 2;
   }
 
-  void display() {
+  display() {
     for (int i = 0; i < heap.length; i++) {
       print(heap[i]);
     }
   }
 
-  void _swap(int i, int j) {
+  _swap(int i, int j) {
     int temp = heap[i];
     heap[i] = heap[j];
     heap[j] = temp;
   }
 }
 
-void main() {
-  List<int> array = [6, 2, 8];
-  MinHeap heap = MinHeap.fromList(array);
+void main(List<String> args) {
+  List list = [6, 2, 8];
+  MinHeap heap = MinHeap.fromList(list);
   heap.display();
   print('object');
   heap.insert(1);
