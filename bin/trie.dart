@@ -42,7 +42,7 @@ class Trie {
       }
       node = node.getChild(letter)!;
     }
-    node.addChild(endSymbol, null);
+    node.addChild(endSymbol, TrieNode());
   }
 
   bool contains(String str) {
@@ -60,5 +60,5 @@ class Trie {
 
 void main() {
   Trie trie = Trie('banana');
-  print(trie.contains('nan')); // output: true
+  print(trie.contains('nna')); // output: true
 }
