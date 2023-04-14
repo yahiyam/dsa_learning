@@ -46,6 +46,24 @@ class BinarySearchTree {
     return false;
   }
 
+  findClosest(int target) {
+    Node? current = root;
+    int? closest = current?.data;
+    while (current != null) {
+      if ((target - closest!).abs() > (target - current.data).abs()) {
+        closest = current.data;
+      }
+      if (target < current.data) {
+        current = current.left;
+      } else if (target > current.data) {
+        current = current.right;
+      } else {
+        break;
+      }
+    }
+    return closest;
+  }
+
 //
   remove(int data) {
     removeHelper(data, root, null);
@@ -98,7 +116,49 @@ class BinarySearchTree {
       return getMiniValue(currentNode.left);
     }
   }
+
 //
+  inOrder() {
+    StringBuffer sb = StringBuffer('IN ORDER => ');
+    inOrderHelper(root, sb);
+    print(sb.toString());
+  }
+
+  inOrderHelper(Node? node, StringBuffer sb) {
+    if (node != null) {
+      inOrderHelper(node.left, sb);
+      sb.write('${node.data} ');
+      inOrderHelper(node.right, sb);
+    }
+  }
+
+  preOrder() {
+    StringBuffer sb = StringBuffer('PRE ORDER => ');
+    preOrderHelper(root, sb);
+    print(sb.toString());
+  }
+
+  preOrderHelper(Node? node, StringBuffer sb) {
+    if (node != null) {
+      sb.write('${node.data} ');
+      preOrderHelper(node.left, sb);
+      preOrderHelper(node.right, sb);
+    }
+  }
+
+  postOrder() {
+    StringBuffer sb = StringBuffer('POST ORDER => ');
+    postOrderHelper(root, sb);
+    print(sb.toString());
+  }
+
+  postOrderHelper(Node? node, StringBuffer sb) {
+    if (node != null) {
+      postOrderHelper(node.left, sb);
+      postOrderHelper(node.right, sb);
+      sb.write('${node.data} ');
+    }
+  }
 }
 
 void main(List<String> args) {
@@ -106,7 +166,15 @@ void main(List<String> args) {
   tree.insert(10);
   tree.insert(8);
   tree.insert(11);
-  tree.remove(11);
-  print(tree.contains(11));
+  tree.insert(4);
+  tree.insert(9);
+  // tree.inOrder();
+  // tree.preOrder();
+  // tree.postOrder();
+  // tree.remove(11);
+  int target = 7;
+  int closest = tree.findClosest(target);
+  print("Closest value to $target: $closest");
+  // print(tree.contains(11));
   // print(tree.contains(15));
 }
