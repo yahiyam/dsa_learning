@@ -1,10 +1,6 @@
 class MinHeap {
   late List<int> heap;
 
-  MinHeap() {
-    heap = [];
-  }
-
   MinHeap.fromList(List<int> array) {
     buildHeap(array);
   }
@@ -96,5 +92,6 @@ void main() {
   heap.insert(15);
   heap.display();
   print('object');
-
+  heap.remove();
+  heap.display();
 }
