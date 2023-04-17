@@ -166,15 +166,17 @@ void main(List<String> args) {
   tree.insert(10);
   tree.insert(8);
   tree.insert(11);
+  tree.insert(12);
+  tree.insert(14);
   tree.insert(4);
   tree.insert(9);
-  // tree.inOrder();
-  // tree.preOrder();
-  // tree.postOrder();
-  // tree.remove(11);
-  int target = 7;
-  int closest = tree.findClosest(target);
-  print("Closest value to $target: $closest");
+  tree.inOrder();
+  // // tree.preOrder();
+  // // tree.postOrder();
+  // // tree.remove(11);
+  // int target = 7;
+  // int closest = tree.findClosest(target);
+  // print("Closest value to $target: $closest");
   // print(tree.contains(11));
   // print(tree.contains(15));
 }

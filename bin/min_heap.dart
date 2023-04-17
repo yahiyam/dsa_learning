@@ -1,13 +1,8 @@
 class MinHeap {
-  late List heap;
+  List heap;
 
-  MinHeap.fromList(List list) {
-    buildHeap(list);
-  }
-
-  buildHeap(List list) {
-    heap = List.from(list);
-    for (int i = parent(heap.length - 1); i >= 0; i--) {
+  MinHeap(this.heap) {
+    for (int i = parent(heap.length); i >= 0; i--) {
       shiftDown(i);
     }
   }
@@ -84,7 +79,7 @@ class MinHeap {
 
 void main(List<String> args) {
   List list = [6, 2, 8];
-  MinHeap heap = MinHeap.fromList(list);
+  MinHeap heap = MinHeap(list);
   heap.display();
   print('object');
   heap.insert(1);
